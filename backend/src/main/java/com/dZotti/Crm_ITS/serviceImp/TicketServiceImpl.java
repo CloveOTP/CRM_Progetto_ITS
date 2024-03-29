@@ -1,6 +1,7 @@
 package com.dZotti.Crm_ITS.serviceImp;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,13 @@ public class TicketServiceImpl implements TicketService {
       ticketList.add(ticket);
     }
     return ticketList;
+  }
+
+  @Override
+  public Ticket saveTicket(Ticket ticket) {
+    ticket.setData_creazione(new Date());
+    ticket.setData_modifica(new Date());
+    return ticketRepository.save(ticket);
   }
 
 }

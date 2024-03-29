@@ -1,17 +1,22 @@
 package com.dZotti.Crm_ITS.models;
 
-import java.sql.Date;
+import java.util.Date;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.SequenceGenerator;
 
 @Entity
 public class Ticket {
 
   @Id
-  @GeneratedValue
+  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequence-generator")
+  @SequenceGenerator(name = "sequence-generator", sequenceName = "ticket_seq", allocationSize = 1)
+  @Column(name = "id")
   private long id;
   private String titolo;
   private Date data_creazione;
@@ -28,6 +33,17 @@ public class Ticket {
 
   @ManyToOne
   private Categoria categoria;
+
+  Ticket() {
+  }
+
+  Ticket(String titolo, Lavoratori lavoratori, Stato stato, Segnalatore segnalatore, Categoria categoria) {
+    this.titolo = titolo;
+    this.lavoratori = lavoratori;
+    this.stato = stato;
+    this.segnalatore = segnalatore;
+    this.categoria = categoria;
+  }
 
   /**
    * @return the id

@@ -1,14 +1,19 @@
 package com.dZotti.Crm_ITS.models;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.SequenceGenerator;
 
 @Entity
 public class Stato {
 
   @Id
-  @GeneratedValue
+  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequence-generator")
+  @SequenceGenerator(name = "sequence-generator", sequenceName = "stato_seq", allocationSize = 1)
+  @Column(name = "id")
   private long id;
   private String stato;
 

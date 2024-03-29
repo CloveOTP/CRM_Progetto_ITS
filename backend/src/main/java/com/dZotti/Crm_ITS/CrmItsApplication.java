@@ -10,4 +10,5 @@ public class CrmItsApplication {
 		SpringApplication.run(CrmItsApplication.class, args);
 	}
 
+
 }
