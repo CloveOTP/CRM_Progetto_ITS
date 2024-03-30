@@ -16,6 +16,12 @@ public class Segnalatore {
   private long id;
   private String username;
 
+  Segnalatore() {
+  }
+
+  Segnalatore(String username) {
+    this.username = username;
+  }
   /**
    * @return the id
    */

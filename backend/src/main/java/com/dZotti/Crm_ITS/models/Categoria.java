@@ -16,6 +16,13 @@ public class Categoria {
   private long id;
   private String tipo;
 
+  Categoria() {
+  }
+
+  Categoria(String tipo) {
+    this.tipo = tipo;
+  }
+
   /**
    * @return the id
    */

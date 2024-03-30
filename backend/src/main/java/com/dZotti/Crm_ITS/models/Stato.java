@@ -17,6 +17,13 @@ public class Stato {
   private long id;
   private String stato;
 
+  Stato() {
+  }
+
+  Stato(String stato) {
+    this.stato = stato;
+  }
+
   /**
    * @return the id
    */
