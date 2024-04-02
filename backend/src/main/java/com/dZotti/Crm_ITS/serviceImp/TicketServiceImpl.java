@@ -29,7 +29,6 @@ public class TicketServiceImpl implements TicketService {
   @Override
   public Ticket saveTicket(Ticket ticket) {
     ticket.setData_creazione(new Date());
-    ticket.setData_modifica(new Date());
     return ticketRepository.save(ticket);
   }
 
